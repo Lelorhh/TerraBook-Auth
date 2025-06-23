@@ -1,0 +1,77 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #f0fdf4, #e1f7e3);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Auth Container */
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 128, 0, 0.15);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+/* Headings */
+.container h2 {
+  margin-bottom: 25px;
+  color: #2d6a4f;
+  font-weight: bold;
+}
+
+/* Form Elements */
+input {
+  width: 100%;
+  padding: 14px;
+  margin: 10px 0 16px;
+  border: 1px solid #cfe8d3;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #2d6a4f;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1b4332;
+}
+
+/* Links */
+p {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+a {
+  color: #2d6a4f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
