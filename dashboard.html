@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TerraBook Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .dashboard {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 100, 0, 0.1);
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .dashboard h2 {
+      color: #2d6a4f;
+      margin-bottom: 10px;
+    }
+
+    .dashboard h3 {
+      margin-top: 25px;
+      color: #40916c;
+    }
+
+    .booking-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .booking-card {
+      background: #e9f5ec;
+      border-left: 5px solid #2d6a4f;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .logout-btn {
+      margin-top: 25px;
+      padding: 12px;
+      background-color: #d00000;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .logout-btn:hover {
+      background-color: #9d0208;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h2>Hello, <span id="username"></span> 👋</h2>
+    <h3>Your Bookings</h3>
+    <ul id="bookingList" class="booking-list"></ul>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    // Check user login
+    const user = localStorage.getItem("loggedInUser");
+    const usernameSpan = document.getElementById("username");
+    const bookingList = document.getElementById("bookingList");
+
+    if (!user) {
+      window.location.href = "index.html";
+    } else {
+      usernameSpan.textContent = user;
+    }
+
+    // Mock booking data
+    const mockBookings = [
+      {
+        location: "Cape Town, South Africa",
+        property: "GreenLeaf Eco Cottage",
+        checkIn: "2025-07-10",
+        checkOut: "2025-07-15"
+      },
+      {
+        location: "Knysna, Garden Route",
+        property: "Forest View Retreat",
+        checkIn: "2025-08-01",
+        checkOut: "2025-08-05"
+      }
+    ];
+
+    // Display bookings
+    mockBookings.forEach(b => {
+      const li = document.createElement("li");
+      li.className = "booking-card";
+      li.innerHTML = `<strong>${b.property}</strong><br>${b.location}<br>📅 ${b.checkIn} to ${b.checkOut}`;
+      bookingList.appendChild(li);
+    });
+
+    function logout() {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
